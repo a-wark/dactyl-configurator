@@ -44,6 +44,13 @@
   "the y dimension of an alps style keyswitch, in millimeter."
   13)
 
+(def choc-width
+  "the x dimension of a choc style keyswitch, in millimeter."
+  13.8)
+(def choc-height
+  "the y dimension of a choc style keyswitch, in millimeter."
+  13.8)
+
 (def sa-profile-key-height 12.7)
 (def choc-profile-key-height 3.5)
 
@@ -78,7 +85,8 @@
         stagger-ring   (get c :configuration-stagger-ring)
         stagger-pinky  (get c :configuration-stagger-pinky)]
     (if stagger?
-      (cond (= column 2) stagger-middle
+      (cond (= column 0) [0, -1.5, 0]
+            (= column 2) stagger-middle
             (= column 3) stagger-ring
             (>= column 4) stagger-pinky
             :else stagger-index)
@@ -268,7 +276,7 @@
                                          (translate [0
                                                      (+ (/ alps-size 2) (/ alps-height 2))
                                                      (/ (plate-thickness c) 2)]))
-                              :choc (->> (cube (+ (keyswitch-width-c c) 3) holder-thickness (* (plate-thickness c) 0.65))
+                              :choc (->> (cube (+ (keyswitch-width-c c) 3) holder-thickness 3.5)
                                          (translate [0
                                                      (+ holder-thickness (/ (keyswitch-height c) 2))
                                                      (* (plate-thickness c) 0.7)]))
@@ -286,7 +294,7 @@
                                                             0
                                                             (- (plate-thickness c)
                                                                (/ alps-notch-height 2))])))
-                              :choc (->> (cube holder-thickness (+ (keyswitch-height c) 3.3) (* (plate-thickness c) 0.65))
+                              :choc (->> (cube holder-thickness (+ (keyswitch-height c) 3.3) 3.5)
                                          (translate [(+ (/ holder-thickness 2) (/ (keyswitch-width-c c) 2))
                                                      0
                                                      (* (plate-thickness c) 0.7)]))
