@@ -105,8 +105,12 @@
 
                         :configuration-show-caps?                  (get misc "keycaps" false)
                         :configuration-plate-projection?           (not (get misc "case" true))
+                        :configuration-is-both?                    (get misc "bothSides" true)
                         :configuration-is-right?                   (get misc "rightSide" true)
-                        :configuration-is-plate?                   (get misc "plate" false)}
+                        :configuration-is-plate?                   (get misc "plate" false)
+                        :configuration-distance-from-middle (get misc "distanceFromMiddle" 0)
+                        :configuration-angle                (get misc "angle" 20)
+                        }
         ]
     c))
 
@@ -151,7 +155,8 @@
                         :configuration-is-right?            (get misc "rightSide" true)
                         :configuration-is-plate?            (get misc "plate" false)
                         :configuration-show-caps?           (get misc "keycaps" false)
-                        :configuration-use-case?            (get misc "useCase" true)}
+                        :configuration-use-case?            (get misc "useCase" true)
+                        }
         ]
     c))
 
@@ -160,9 +165,11 @@
     (if (get c :configuration-is-right?)
       (dm/plate-right c)
       (dm/plate-left c))
-    (if (get c :configuration-is-right?)
-      (dm/model-right c)
-      (dm/model-left c))))
+    (if (get c :configuration-is-both?)
+      (dm/model-both c)
+      (if (get c :configuration-is-right?)
+        (dm/model-right c)
+        (dm/model-left c)))))
 
 (defn generate-lightcycle [c]
   (if (get c :configuration-is-plate?)

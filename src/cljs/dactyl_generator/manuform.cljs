@@ -1053,18 +1053,18 @@
     (union
      (for [y (range 0 end)]
        (union
-        (wall-brace c
-                    (partial partial-place y 1) -1 0 (web-post c web-thickness)
-                    (partial partial-place y -1) -1 0 (web-post c web-thickness))
+        ; (wall-brace c
+        ;             (partial partial-place y 1) -1 0 (web-post c web-thickness)
+        ;             (partial partial-place y -1) -1 0 (web-post c web-thickness))
         (hull (key-place c init y (cmn/web-post-tl c web-thickness))
               (key-place c init y (cmn/web-post-bl c web-thickness))
               (partial-place y  1 (web-post c web-thickness))
               (partial-place y -1 (web-post c web-thickness)))))
      (for [y (range 1 (case inner :outie cornerrow lastrow))]
        (union
-        (wall-brace c
-                    (partial partial-place (dec y) -1) -1 0 (web-post c web-thickness)
-                    (partial partial-place y        1) -1 0 (web-post c web-thickness))
+        ; (wall-brace c
+        ;             (partial partial-place (dec y) -1) -1 0 (web-post c web-thickness)
+        ;             (partial partial-place y        1) -1 0 (web-post c web-thickness))
         (hull (key-place c init y       (cmn/web-post-tl c web-thickness))
               (key-place c init (dec y) (cmn/web-post-bl c web-thickness))
               (partial-place y        1 (web-post c web-thickness))
@@ -1072,9 +1072,10 @@
      (wall-brace c
                  (partial key-place c init 0) 0 1 (cmn/web-post-tl c web-thickness)
                  (partial partial-place 0 1)  0 1 (web-post c web-thickness))
-     (wall-brace c
-                 (partial partial-place 0 1)  0 1 (web-post c web-thickness)
-                 (partial partial-place 0 1) -1 0 (web-post c web-thickness)))))
+     ; (wall-brace c
+     ;             (partial partial-place 0 1)  0 1 (web-post c web-thickness)
+     ;             (partial partial-place 0 1) -1 0 (web-post c web-thickness))
+     )))
 
 (defn front-wall [c]
   (let [ncols         (get c :configuration-ncols)
@@ -1370,7 +1371,7 @@
     (union
      (case thumb-count
        :two body-gap-two
-       :three-mini body-gap-five
+       ; :three-mini body-gap-five
        :five body-gap-five
        body-gap-default)
      (case thumb-count
@@ -1718,6 +1719,13 @@
 
 (defn model-left [c]
   (mirror [-1 0 0] (model-right c)))
+
+(defn model-both [c]
+  (let [distance       (get c :configuration-distance-from-middle)
+        angle          (get c :configuration-angle)]
+    (union
+      (translate [(+ distance 80) 0 0] (rotate (deg2rad angle) [0 0 1] (model-right c)))
+      (mirror [1 0 0] (translate [(+ distance 80) 0 0] (rotate (deg2rad angle) [0 0 1] (model-right c)))))))
 
 (defn plate-right [c]
   (let [use-screw-inserts? (get c :configuration-use-screw-inserts?)
