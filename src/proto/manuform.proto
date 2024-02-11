@@ -113,7 +113,8 @@ message Manuform {
   message Misc {
     optional bool keycaps = 1 [(name) = "Show Keycaps"];
     optional bool right_side = 2 [(name) = "Right Side"];
-    optional bool plate = 3 [(name) = "Generate Plate Instead"];
+    optional bool both_sides = 3 [(name) = "Both Sides"];
+    optional bool plate = 4 [(name) = "Generate Plate Instead"];
   }
   optional Keys keys = 1 [(name) = "Keys"];
   optional Curve curve = 2 [(name) = "Curve"];

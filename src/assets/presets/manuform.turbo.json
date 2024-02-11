@@ -1,0 +1,42 @@
+{
+  "keyboard": "manuform",
+  "options": {
+    "keys": {
+      "columns": 6,
+      "rows": 4,
+      "thumbCount": "three-mini",
+      "lastRow": "zero",
+      "switchType": "box",
+      "innerColumn": "normie",
+      "hideLastPinky": false
+    },
+    "curve": {
+      "alpha": 675,
+      "pinkyAlpha": 675,
+      "beta": 225,
+      "centercol": 4,
+      "tenting": 540,
+      "rotateX": 45
+    },
+    "connector": {
+      "external": false,
+      "type": "rj9",
+      "microUsb": false
+    },
+    "form": {
+      "heightOffset": 4,
+      "hotswap": false,
+      "screwInserts": false,
+      "webThickness": 7.0,
+      "wallThickness": 3.0,
+      "widePinky": false,
+      "wirePost": false
+    },
+    "misc": {
+      "keycaps": false,
+      "rightSide": true,
+      "bothSides": true,
+      "plate": false
+    }
+  }
+}

@@ -539,8 +539,8 @@
          (translate [0 0 (/ height 2)] (sphere top-radius))))
 
 (def screw-insert-height 3.8)
-(def screw-insert-bottom-radius (/ 5.31 2))
-(def screw-insert-top-radius (/ 5.1 2))
+(def screw-insert-bottom-radius 1.5)
+(def screw-insert-top-radius 1.6)
 
 (defn screw-insert-holes
   "TODO: doc.

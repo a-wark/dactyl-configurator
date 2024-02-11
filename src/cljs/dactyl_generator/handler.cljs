@@ -109,7 +109,7 @@
                         :configuration-is-right?                   (get misc "rightSide" true)
                         :configuration-is-plate?                   (get misc "plate" false)
                         :configuration-distance-from-middle (get misc "distanceFromMiddle" 0)
-                        :configuration-angle                (get misc "angle" 20)
+                        :configuration-angle                (get misc "angle" 25)
                         }
         ]
     c))

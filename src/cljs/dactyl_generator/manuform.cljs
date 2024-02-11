@@ -1059,8 +1059,9 @@
         (hull (key-place c init y (cmn/web-post-tl c web-thickness))
               (key-place c init y (cmn/web-post-bl c web-thickness))
               (partial-place y  1 (web-post c web-thickness))
-              (partial-place y -1 (web-post c web-thickness)))))
-     (for [y (range 1 (case inner :outie cornerrow lastrow))]
+              (partial-place y -1 (web-post c web-thickness))
+              )))
+     (for [y (range 1 end)]
        (union
         ; (wall-brace c
         ;             (partial partial-place (dec y) -1) -1 0 (web-post c web-thickness)
@@ -1625,11 +1626,12 @@
         var-middle-last (if is-three-mini? -0.3 (if is-five? -0 0.2))
         y-middle-last   (+ lastrow var-middle-last)
         x-middle-last   (if is-five? 1.6 2)]
-    (union (screw-insert c first-screw-x  0               bottom-radius top-radius height)
-           (screw-insert c second-screw-x (- lastrow 0.8) bottom-radius top-radius height)
-           (screw-insert c x-middle-last  y-middle-last   bottom-radius top-radius height)
+    (union 
+           ; (screw-insert c first-screw-x  0               bottom-radius top-radius height)
+           (screw-insert c second-screw-x (- lastrow 0.2) bottom-radius top-radius height)
+           (screw-insert c x-middle-last  3.2   bottom-radius top-radius height)
            (screw-insert c 3              0               bottom-radius top-radius height)
-           (screw-insert c lastloc        1               bottom-radius top-radius height))))
+           (screw-insert c (- lastloc 0.06)        1               bottom-radius top-radius height))))
 
 (def wire-post-height 7)
 (def wire-post-overhang 3.5)
