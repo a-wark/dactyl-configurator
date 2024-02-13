@@ -539,8 +539,8 @@
          (translate [0 0 (/ height 2)] (sphere top-radius))))
 
 (def screw-insert-height 3.8)
-(def screw-insert-bottom-radius 1.5)
-(def screw-insert-top-radius 1.6)
+(def screw-insert-bottom-radius 1.7)
+(def screw-insert-top-radius 1.8)
 
 (defn screw-insert-holes
   "TODO: doc.
@@ -561,7 +561,7 @@
 (defn screw-insert-screw-holes
   "TODO: doc."
   [placement-function c]
-  (placement-function c 1.7 1.7 350))
+  (placement-function c 1.3 1.3 350))
 
 (defn screw-insert [c column row bottom-radius top-radius height]
   (let [lastcol     (flastcol (get c :configuration-ncols))

@@ -1751,6 +1751,13 @@
 (defn plate-left [c]
   (mirror [-1 0 0] (plate-right c)))
 
+(defn plate-both [c]
+  (let [distance       (get c :configuration-distance-from-middle)
+        angle          (get c :configuration-angle)]
+    (union
+      (translate [(+ distance 80) 0 0] (rotate (deg2rad angle) [0 0 1] (plate-right c)))
+      (mirror [1 0 0] (translate [(+ distance 80) 0 0] (rotate (deg2rad angle) [0 0 1] (plate-right c)))))))
+
 (def c {:configuration-nrows                    4
         :configuration-ncols                    5
         :configuration-thumb-count              :six

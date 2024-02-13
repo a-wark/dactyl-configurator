@@ -162,9 +162,11 @@
 
 (defn generate-manuform [c]
   (if (get c :configuration-is-plate?)
-    (if (get c :configuration-is-right?)
-      (dm/plate-right c)
-      (dm/plate-left c))
+    (if (get c :configuration-is-both?)
+      (dm/plate-both c)
+      (if (get c :configuration-is-right?)
+        (dm/plate-right c)
+        (dm/plate-left c)))
     (if (get c :configuration-is-both?)
       (dm/model-both c)
       (if (get c :configuration-is-right?)
