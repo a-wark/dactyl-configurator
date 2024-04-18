@@ -1628,10 +1628,12 @@
         x-middle-last   (if is-five? 1.6 2)]
     (union 
            ; (screw-insert c first-screw-x  0               bottom-radius top-radius height)
-           (screw-insert c second-screw-x (- lastrow 0.2) bottom-radius top-radius height)
-           (screw-insert c x-middle-last  3.2   bottom-radius top-radius height)
-           (screw-insert c 3              0               bottom-radius top-radius height)
-           (screw-insert c (- lastloc 0.06)        1               bottom-radius top-radius height))))
+           (screw-insert c second-screw-x (+ lastrow 1.5) bottom-radius top-radius height)
+           ; (screw-insert c second-screw-x (- lastrow 0.2) bottom-radius top-radius height)
+           ; (screw-insert c x-middle-last  3.2   bottom-radius top-radius height)
+           (screw-insert c 0.7              (- lastrow 3.45)               bottom-radius top-radius height)
+           (screw-insert c (- lastloc 0.2)        0.14               bottom-radius top-radius height)
+           (screw-insert c (- lastloc 0.2)        2.89               bottom-radius top-radius height))))
 
 (def wire-post-height 7)
 (def wire-post-overhang 3.5)

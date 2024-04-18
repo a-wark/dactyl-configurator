@@ -555,7 +555,7 @@
    but basically it takes a function that places outer parts of screw holes with the following specs."
   [placement-function c]
   (placement-function c
-                      (+ screw-insert-bottom-radius 1.6)
+                      (+ screw-insert-bottom-radius 2)
                       (+ screw-insert-top-radius 1.6)
                       (+ screw-insert-height 1.5)))
 (defn screw-insert-screw-holes
